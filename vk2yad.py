@@ -56,7 +56,7 @@ def upload_photos_to_yad(yad_token, folder_name, photos_list):
             photo_date = photo_date.strftime('%Y-%m-%d-%H-%M-%S')
             file_name = f'{item["likes_count"]}-{photo_date}{file_ext}'
         copy_log.append({'file_name':file_name, 'size':item['size_type']})
-        full_path = os.path.join(folder_name, file_name)
+        full_path = '/'.join([folder_name, file_name])
         delete_file = False
         file_exists = yad_api.get_file_meta_data(full_path).ok
         if file_exists and not overwrite_all:
