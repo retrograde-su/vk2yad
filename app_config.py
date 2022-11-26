@@ -1,0 +1,2 @@
+VK_APP_KEY = ''
+YAD_TOKEN = ''
