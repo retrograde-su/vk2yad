@@ -58,14 +58,15 @@ def upload_photos_to_yad(yad_token, folder_name, photos_list):
         copy_log.append({'file_name':file_name, 'size':item['size_type']})
         full_path = os.path.join(folder_name, file_name)
         delete_file = False
-        if yad_api.get_file_meta_data(full_path).ok and not overwrite_all:
+        file_exists = yad_api.get_file_meta_data(full_path).ok
+        if file_exists and not overwrite_all:
             progress_iterator.clear()
             delete_file = input(f'Файл \'{file_name}\' уже существует. '
                 'Перезаписать? (Y/N/All): ')
             progress_iterator.refresh()
             overwrite_all = delete_file.upper() == 'ALL'
             delete_file = delete_file.upper() == 'Y'
-        delete_file = delete_file or overwrite_all
+        delete_file = file_exists and (delete_file or overwrite_all)
         if delete_file:
             yad_api.delete_file(full_path)
         
