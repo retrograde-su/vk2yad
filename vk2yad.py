@@ -37,8 +37,6 @@ def upload_photos_to_yad(yad_token, folder_name, photos_list):
     """
     Upload files from the list 'photos_list' to the Yandex.Disk of the user
     with the token 'yad_token' to the folder 'folder_name'.
-    'progress' parameter is indicator
-    of the program operation process (tqdm object)
     """
     yad_api = YAD_API_Client(yad_token)
     """If the folder 'folder_name' is missing, then create it"""
