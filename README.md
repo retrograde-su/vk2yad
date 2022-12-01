@@ -1,4 +1,4 @@
-# Final work on the course "Python developer" on the project "Employment Promotion"
+# Final work on the course "Python developer" on the project "Employment Assistance"
 
 ## Assignment to the final work:
 
